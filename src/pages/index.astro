@@ -1,0 +1,1115 @@
+---
+const siteUrl = 'https://mixipos.com/'
+const pageTitle = 'Restoran, Kafe ve Otel için POS & Adisyon Programı | mixipos'
+const pageDescription =
+  'Restoran, kafe, bar ve otel F&B için yapay zekâ destekli POS ve adisyon programı: QR ile self-servis sipariş, mutfak ekranı (KDS), oda folio entegrasyonu, akıllı stok ve canlı ciro takibi. Kurulum yok, tarayıcıdan çalışır.'
+const ogImage = new URL('/assets/panel-screenshot.png', siteUrl).toString()
+const logoImage = new URL('/assets/mixipos-logo.svg', siteUrl).toString()
+const keywords = [
+  'restoran pos programı',
+  'adisyon programı',
+  'qr sipariş',
+  'qr menü',
+  'kafe pos',
+  'bar pos',
+  'otel pos programı',
+  'mutfak ekranı',
+  'kds',
+  'oda folyo entegrasyonu',
+  'restoran adisyon programı',
+  'garson el terminali',
+  'hesap bölme',
+  'z raporu',
+  'restoran stok takibi',
+  'dokunmatik pos',
+  'çok şubeli pos',
+  'yapay zeka pos'
+]
+const faqItems = [
+  {
+    question: 'Kurulum gerekiyor mu, hangi cihazlarda çalışır?',
+    answer:
+      'Kurulum yok. mixipos tarayıcıdan çalışır; tablet, telefon, dokunmatik POS terminali ve bilgisayarda aynı hesapla açılır.'
+  },
+  {
+    question: 'QR sipariş için misafir uygulama indirir mi?',
+    answer:
+      'Hayır. Misafir masadaki QR kodu kamerasıyla okutur, menü tarayıcıda açılır ve sipariş verilir. İndirme veya üyelik gerekmez.'
+  },
+  {
+    question: 'İnternet kesilirse ne olur?',
+    answer:
+      'Kısa bağlantı kesintilerinde açık adisyon ekranda kalır; bağlantı geri geldiğinde kayıtlar otomatik olarak eşitlenir.'
+  },
+  {
+    question: 'Otel oda folyosuna nasıl bağlanır?',
+    answer:
+      'minirez veya maxirez kullanıyorsanız mixipos PMS ile entegredir; F&B adisyonunu tek tıkla misafirin odasına yazarsınız.'
+  },
+  {
+    question: 'Hesap bölme ve kişi bazlı ödeme var mı?',
+    answer:
+      'Evet. Hesabı kişiye veya kaleme göre bölün, masaları birleştirin, her payı ayrı kartla veya nakitle tahsil edin.'
+  },
+  {
+    question: 'Mutfak ekranı (KDS) ayrı bir cihaz mı?',
+    answer:
+      'Hayır, herhangi bir tablet veya ekran KDS’e döner. Siparişler gerçek zamanlı düşer; hazırlanıyor → hazır akışıyla yönetilir.'
+  },
+  {
+    question: 'Ödeme ve POS cihazı entegrasyonu var mı?',
+    answer:
+      'iyzico ve PayTR ile online ödeme desteklenir; yerel banka POS cihazlarıyla uyumlu çalışır.'
+  },
+  {
+    question: 'minirez, maxirez ve mixifin ile ilişkisi nedir?',
+    answer:
+      'Dördü de Adviceal ürünüdür ve aynı panel altyapısında çalışır. Oteli, acenteyi veya ön muhasebeyi zaten kullanıyorsanız mixipos’a aynı hesapla geçersiniz.'
+  }
+]
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${siteUrl}#organization`,
+      name: 'AdviceAl Online Danışmanlık Turizm Sanayi ve Ticaret Ltd. Şti.',
+      url: 'https://adviceal.com/',
+      telephone: '+90 242 606 19 91',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Akdeniz Üniversitesi Uluğbey Ar-Ge Binası No: 3A/5 Teknokent',
+        addressLocality: 'Antalya',
+        addressCountry: 'TR'
+      },
+      brand: {
+        '@type': 'Brand',
+        name: 'mixipos',
+        url: siteUrl,
+        logo: logoImage
+      },
+      sameAs: [
+        'https://facebook.com/adviceal',
+        'https://instagram.com/advicealcom',
+        'https://linkedin.com/company/adviceal',
+        'https://twitter.com/adviceal',
+        'https://youtube.com/@adviceal'
+      ]
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}#website`,
+      url: siteUrl,
+      name: 'mixipos',
+      inLanguage: 'tr-TR',
+      publisher: { '@id': `${siteUrl}#organization` }
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${siteUrl}#webpage`,
+      url: siteUrl,
+      name: pageTitle,
+      description: pageDescription,
+      isPartOf: { '@id': `${siteUrl}#website` },
+      about: { '@id': `${siteUrl}#software` },
+      primaryImageOfPage: {
+        '@type': 'ImageObject',
+        url: ogImage,
+        width: 1200,
+        height: 630
+      },
+      inLanguage: 'tr-TR'
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': `${siteUrl}#software`,
+      name: 'mixipos',
+      applicationCategory: 'BusinessApplication',
+      applicationSubCategory: 'Point of Sale / Restaurant POS',
+      operatingSystem: 'Web',
+      url: siteUrl,
+      image: ogImage,
+      description: pageDescription,
+      inLanguage: 'tr-TR',
+      publisher: { '@id': `${siteUrl}#organization` },
+      provider: { '@id': `${siteUrl}#organization` },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'TRY',
+        description: 'Ücretsiz canlı demo ve kurulum danışmanlığı'
+      },
+      featureList: [
+        'AI akıllı dashboard: canlı ciro, anomali tespiti ve ciro tahmini',
+        'QR ile self-servis sipariş (uygulama gerektirmez)',
+        'Adisyon böl, birleştir, masa taşı ve kişi bazlı ödeme',
+        'Mutfak ekranı (KDS) ve gerçek zamanlı sipariş akışı',
+        'Otel oda folio entegrasyonu (PMS ile)',
+        'Akıllı stok: otomatik düşüm, kritik stok uyarısı, fire/iade',
+        'Kasa & vardiya yönetimi, Z-raporu, nakit-kart mutabakatı',
+        'Denetim izi ve raporlar: garson performansı, ürün satış, iptal/void'
+      ],
+      audience: {
+        '@type': 'BusinessAudience',
+        audienceType: 'Restoran, kafe, bar, otel F&B, hızlı servis ve çok şubeli işletmeler'
+      }
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${siteUrl}#faq`,
+      url: `${siteUrl}#sss`,
+      inLanguage: 'tr-TR',
+      mainEntity: faqItems.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer
+        }
+      }))
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${siteUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'mixipos',
+          item: siteUrl
+        }
+      ]
+    }
+  ]
+}
+---
+
+<html lang="tr">
+<head>
+  <!--
+    Google Analytics (GA4) is intentionally OMITTED from the shipped page.
+    To enable it, uncomment the block below and replace G-XXXXXXXXXX with this
+    property's real Measurement ID (see .env.example). Never ship another
+    property's id.
+
+    <script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDescription} />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="keywords" content={keywords.join(', ')} />
+  <meta name="author" content="Adviceal" />
+  <meta name="publisher" content="Adviceal" />
+  <meta name="application-name" content="mixipos" />
+  <meta name="apple-mobile-web-app-title" content="mixipos" />
+  <meta http-equiv="content-language" content="tr-TR" />
+  <meta name="theme-color" content="#160b05" />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="canonical" href={siteUrl} />
+  <link rel="alternate" hreflang="tr-TR" href={siteUrl} />
+  <link rel="alternate" hreflang="x-default" href={siteUrl} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={pageDescription} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={siteUrl} />
+  <meta property="og:site_name" content="mixipos" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:secure_url" content={ogImage} />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="mixipos restoran POS ve adisyon paneli" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={pageDescription} />
+  <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image:alt" content="mixipos restoran POS ve adisyon paneli" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css?v=1" />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
+</head>
+<body>
+
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- ====================== NAV ====================== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#top" aria-label="mixipos ana sayfa">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <defs>
+            <linearGradient id="navmark" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#ffb02e"/><stop offset=".52" stop-color="#ff7a00"/><stop offset="1" stop-color="#f24a0a"/>
+            </linearGradient>
+          </defs>
+          <rect width="32" height="32" rx="8" fill="url(#navmark)" opacity=".16"/>
+          <path d="M7 22.5V13l4.4 5 4.6-7 4.6 7L25 9.5" fill="none" stroke="url(#navmark)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand__word">mixipos</span>
+      </a>
+      <nav class="nav__links" aria-label="Sayfa içi gezinme">
+        <a href="#ozellikler">Özellikler</a>
+        <a href="#qr-siparis">QR Sipariş</a>
+        <a href="#mutfak">Mutfak</a>
+        <a href="#oda-folio">Oda Folio</a>
+        <a href="#ai-dashboard">AI</a>
+        <a href="#sss">SSS</a>
+      </nav>
+      <div class="nav__cta">
+        <a class="nav__phone" href="tel:+902426061991">
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M6.6 3h3l1.5 4.2-2 1.5a13 13 0 0 0 6.2 6.2l1.5-2L21 14.4v3A2.6 2.6 0 0 1 18.4 20 15.4 15.4 0 0 1 4 5.6 2.6 2.6 0 0 1 6.6 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          0242 606 19 91
+        </a>
+        <a class="btn btn--primary btn--sm btn--shine" href="#demo">Ücretsiz Demo</a>
+      </div>
+      <button class="nav__burger" id="burger" aria-label="Menüyü aç" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__sheet" id="navSheet">
+      <a href="#ozellikler">Özellikler</a>
+      <a href="#qr-siparis">QR Sipariş</a>
+      <a href="#mutfak">Mutfak</a>
+      <a href="#oda-folio">Oda Folio</a>
+      <a href="#ai-dashboard">AI</a>
+      <a href="#sss">SSS</a>
+      <a href="tel:+902426061991">0242 606 19 91</a>
+      <a class="btn btn--primary" href="#demo">Ücretsiz Demo</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ====================== HERO ====================== -->
+    <section class="hero" id="hero">
+      <div class="hero__sky" aria-hidden="true">
+        <div class="aurora aurora--1"></div>
+        <div class="aurora aurora--2"></div>
+        <div class="aurora aurora--3"></div>
+        <div class="hero__grid"></div>
+        <div class="hero__horizon"></div>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__copy reveal">
+          <a class="chip chip--hero" href="#aile">
+            <span class="chip__dot"></span>
+            Yeni · Adviceal ailesinin POS&apos;u
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+
+          <h1 class="hero__title">
+            Siparişten ödemeye,<br/>restoranınızın <span class="grad-text">akıllı POS&apos;u.</span>
+          </h1>
+
+          <p class="hero__sub">
+            QR ile self-servis sipariş, mutfak ekranı, hesap bölme ve oda folio entegrasyonu —
+            restoran, kafe, bar ve otel F&amp;B için yapay zekâ destekli adisyon. Kurulum yok,
+            tarayıcıdan çalışır; gerisini <strong>mixipos</strong> halleder.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg btn--shine" href="#demo">Ücretsiz Demo</a>
+            <a class="btn btn--ghost btn--lg" href="#ozellikler">Özellikleri Gör</a>
+          </div>
+
+          <ul class="hero__trust" aria-label="Güven unsurları">
+            <li>Kurulum yok, tarayıcıdan çalışır</li>
+            <li>QR menü TR/EN</li>
+            <li>iyzico &amp; PayTR ile ödeme</li>
+            <li>7/24 canlı senkron</li>
+          </ul>
+        </div>
+
+        <!-- ---------- Animated POS dashboard mockup ---------- -->
+        <div class="hero__visual reveal" id="mock">
+          <div class="mock" id="mockCard">
+            <div class="mock__chrome">
+              <span class="mock__dot" style="background:#fb7185"></span>
+              <span class="mock__dot" style="background:#ffb02e"></span>
+              <span class="mock__dot" style="background:#34d399"></span>
+              <span class="mock__url">panel.mixipos.com</span>
+            </div>
+            <div class="mock__body">
+              <aside class="mock__side">
+                <div class="mock__sidebrand">mixipos</div>
+                <div class="mock__sideitem is-active">Panel</div>
+                <div class="mock__sideitem">Adisyonlar</div>
+                <div class="mock__sideitem">Masalar</div>
+                <div class="mock__sideitem">Mutfak (KDS)</div>
+                <div class="mock__sideitem">QR Sipariş</div>
+                <div class="mock__sideitem">Stok</div>
+                <div class="mock__sideitem">Kasa &amp; Vardiya</div>
+                <div class="mock__sideitem">Raporlar</div>
+                <div class="mock__sideitem mock__sideitem--ai">Asistan <span>AI</span></div>
+              </aside>
+              <div class="mock__main">
+                <div class="mock__head">
+                  <div>
+                    <div class="mock__title">Panel</div>
+                    <div class="mock__subtitle">Canlı servis · bugün</div>
+                  </div>
+                  <div class="mock__pills">
+                    <span class="is-on">Bugün</span><span>Hafta</span><span>Ay</span>
+                  </div>
+                </div>
+
+                <div class="mock__cards">
+                  <div class="kpi">
+                    <span class="kpi__label">Günün cirosu</span>
+                    <span class="kpi__value">₺<span class="count" data-count="128480">0</span></span>
+                    <span class="kpi__delta kpi__delta--up">▲ %14</span>
+                  </div>
+                  <div class="kpi">
+                    <span class="kpi__label">Sipariş</span>
+                    <span class="kpi__value"><span class="count" data-count="842">0</span></span>
+                    <span class="kpi__delta kpi__delta--up">▲ %9</span>
+                  </div>
+                  <div class="kpi">
+                    <span class="kpi__label">Ortalama adisyon</span>
+                    <span class="kpi__value">₺<span class="count" data-count="152">0</span></span>
+                    <span class="kpi__delta kpi__delta--up">▲ %6</span>
+                  </div>
+                  <div class="kpi">
+                    <span class="kpi__label">Açık masa</span>
+                    <span class="kpi__value kpi__value--ok"><span class="count" data-count="14">0</span></span>
+                    <span class="kpi__delta">şu an</span>
+                  </div>
+                </div>
+
+                <div class="mock__chartcard">
+                  <div class="mock__chartcard-head">
+                    <span>Saatlik ciro &amp; sipariş</span>
+                    <div class="mock__toggle" role="group" aria-label="Grafik aralığı">
+                      <button class="is-on" id="tglToday" type="button">Bugün</button>
+                      <button id="tglWeek" type="button">Hafta</button>
+                    </div>
+                  </div>
+                  <div class="mock__legend">
+                    <span><i class="lg lg--line"></i>Kümülatif ciro</span>
+                    <span><i class="lg lg--card"></i>Kart</span>
+                    <span><i class="lg lg--in"></i>Nakit</span>
+                  </div>
+                  <svg id="flowChart" viewBox="0 0 560 190" preserveAspectRatio="none" aria-label="Saatlik ciro ve ödeme grafiği">
+                    <defs>
+                      <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#ff7a00" stop-opacity=".32"/>
+                        <stop offset="1" stop-color="#ff7a00" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0" stop-color="#ffb02e"/><stop offset=".6" stop-color="#ff7a00"/><stop offset="1" stop-color="#f24a0a"/>
+                      </linearGradient>
+                    </defs>
+                    <g id="flowGrid"></g>
+                    <g id="flowBars"></g>
+                    <path id="flowArea" fill="url(#areaFill)" d=""></path>
+                    <path id="flowLine" fill="none" stroke="url(#lineGrad)" stroke-width="3" stroke-linecap="round" d=""></path>
+                    <g id="flowDots"></g>
+                  </svg>
+                  <div class="mock__xlabels" id="xLabels"></div>
+                </div>
+
+                <div class="mock__row2">
+                  <div class="mock__barcard">
+                    <span class="mock__barcard-title">Kategori satışları <em>(bugün)</em></span>
+                    <div class="catbars" id="catBars" aria-hidden="true"></div>
+                  </div>
+                  <div class="mock__agingcard">
+                    <span class="mock__barcard-title">Ödeme dağılımı</span>
+                    <div class="donutwrap">
+                      <svg class="donut" id="donut" viewBox="0 0 140 140" aria-hidden="true">
+                        <circle class="donut__bg" cx="70" cy="70" r="54"></circle>
+                        <g id="donutSegs"></g>
+                      </svg>
+                      <div class="donut__legend">
+                        <div><i style="background:#ff7a00"></i>Kart <b>%56</b></div>
+                        <div><i style="background:#34d399"></i>Nakit <b>%22</b></div>
+                        <div><i style="background:#ffc24d"></i>Yemek kartı <b>%12</b></div>
+                        <div><i style="background:#f24a0a"></i>Oda folio <b>%10</b></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- floating cards -->
+          <div class="float float--order" aria-hidden="true">
+            <div class="float__icon float__icon--ai">QR</div>
+            <div>
+              <strong>Yeni QR siparişi · Masa 7</strong>
+              <p>3 ürün · mutfağa düştü <span>Onayla →</span></p>
+            </div>
+          </div>
+          <div class="float float--folio" aria-hidden="true">
+            <div class="float__icon float__icon--ok">✓</div>
+            <div>
+              <strong>Oda 214&apos;e yazıldı</strong>
+              <p>Bar adisyonu ₺840 · PMS folio</p>
+            </div>
+          </div>
+          <div class="float float--kds" aria-hidden="true">
+            🍳 <b>Mutfak:</b> Masa 3 hazır
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== MARQUEE ====================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>QR Sipariş</span><i>•</i><span>Adisyon</span><i>•</i><span>Hesap böl</span><i>•</i><span>Masa planı</span><i>•</i><span>Mutfak ekranı (KDS)</span><i>•</i><span>Oda folio</span><i>•</i><span>Z-raporu</span><i>•</i><span>Vardiya</span><i>•</i><span>Akıllı stok</span><i>•</i><span>Reçete &amp; maliyet</span><i>•</i><span>Garson performansı</span><i>•</i><span>Saatlik ciro</span><i>•</i><span>Çok-şube</span><i>•</i><span>Anlık senkron</span><i>•</i><span>Yemek kartı</span><i>•</i><span>İkram &amp; indirim</span><i>•</i><span>Void &amp; iptal</span><i>•</i><span>Self-servis</span><i>•</i>
+        <span>QR Sipariş</span><i>•</i><span>Adisyon</span><i>•</i><span>Hesap böl</span><i>•</i><span>Masa planı</span><i>•</i><span>Mutfak ekranı (KDS)</span><i>•</i><span>Oda folio</span><i>•</i><span>Z-raporu</span><i>•</i><span>Vardiya</span><i>•</i><span>Akıllı stok</span><i>•</i><span>Reçete &amp; maliyet</span><i>•</i><span>Garson performansı</span><i>•</i><span>Saatlik ciro</span><i>•</i><span>Çok-şube</span><i>•</i><span>Anlık senkron</span><i>•</i><span>Yemek kartı</span><i>•</i><span>İkram &amp; indirim</span><i>•</i><span>Void &amp; iptal</span><i>•</i><span>Self-servis</span><i>•</i>
+      </div>
+    </div>
+
+    <!-- ====================== STATEMENT / AİLE ====================== -->
+    <section class="statement" id="aile">
+      <div class="container reveal">
+        <p class="statement__quote">&quot;Herkesle aynı yoldan yürüyüp farklı bir ufka ulaşamazsınız.&quot;</p>
+        <p class="statement__sub">Bu cümleyle minirez ve maxirez&apos;i yaptık, mixifin ile ön muhasebeyi yeniledik. Şimdi sıra restoranda: kasanın arkasındaki o eski POS&apos;u bırakın, işinizi gerçekten hızlandıran bir adisyon kullanın. <strong>mixipos</strong>, Adviceal ailesinin POS&apos;u.</p>
+        <div class="statement__family">
+          <span>minirez <em>otel yönetimi</em></span>
+          <span>maxirez <em>acente teknolojisi</em></span>
+          <span>mixifin <em>ön muhasebe &amp; e-fatura</em></span>
+          <span class="is-hot">mixipos <em>POS &amp; adisyon</em></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== AI DASHBOARD ====================== -->
+    <section class="section section--light section--tint" id="ai-dashboard">
+      <div class="container spotlight__inner">
+        <div class="spotlight__copy reveal">
+          <span class="kicker">Yapay zekâ</span>
+          <h2>Sorun, panel cevaplasın.<br/><span class="grad-text">Veriden, anında.</span></h2>
+          <p>mixipos asistanı süs değil. &quot;Bugün en çok ne sattım?&quot; deyin, listelesin. Yoğun saati sorun, tahmin etsin. Stok bitmeden uyarsın, tedarikçiye taslak hazırlasın — siz sadece onaylayın.</p>
+          <ul class="ticklist">
+            <li>Yoğun saatleri ve ciroyu önceden tahmin eder</li>
+            <li>Anormal iade, iptal ve indirimleri yakalar</li>
+            <li>&quot;Bugün neyi öne çıkar?&quot; diye somut öneri verir</li>
+            <li>Her ekranda içgörü kartı: düşen stok, yavaşlayan masa, artan iptal</li>
+          </ul>
+          <p class="spotlight__hint"><kbd>Ctrl</kbd> + <kbd>K</kbd> ile her ürüne, masaya, rapora saniyeler içinde ulaşın.</p>
+        </div>
+        <div class="spotlight__visual reveal">
+          <div class="chat" id="chat">
+            <div class="chat__head">
+              <span class="chat__status"></span> mixipos asistan
+              <span class="chat__live">canlı veri</span>
+              <span class="chat__badge">AI</span>
+            </div>
+            <div class="chat__body" id="chatBody"></div>
+            <div class="chat__chips" id="chatChips">
+              <button type="button" data-q="0">Bugün en çok ne sattım?</button>
+              <button type="button" data-q="1">En kârlı ürün hangisi?</button>
+              <button type="button" data-q="2">Akşam yoğunluğu nasıl?</button>
+            </div>
+            <div class="chat__input" aria-hidden="true">Asistana sorun<span class="chat__caret"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== FEATURES GRID ====================== -->
+    <section class="section section--light" id="ozellikler">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="kicker">Hepsi içinde</span>
+          <h2>Masadan kasaya,<br/><span class="grad-text">ne lazımsa.</span></h2>
+          <p>QR sipariş, mutfak ekranı, adisyon, stok, kasa ve raporlar. Beş ayrı program yerine birbirine bağlı çalışan tek panel.</p>
+        </div>
+
+        <div class="grid features">
+          <article class="fcard reveal">
+            <div class="fcard__icon"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M7 15l3-4 3 2 4-6"/></svg></div>
+            <h3>AI Akıllı Dashboard</h3>
+            <p>Canlı ciro, sipariş ve ortalama adisyon tek bakışta. mixipos yoğun saatleri tahmin eder, anormal iade/iptalleri yakalar ve &quot;bugün neyi öne çıkar&quot; diye önerir.</p>
+            <div class="fcard__tags"><span>Canlı ciro</span><span>Anomali tespiti</span><span>Ciro tahmini</span></div>
+          </article>
+
+          <article class="fcard reveal">
+            <div class="fcard__icon"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM15 15h2M19 15v2M15 19h4"/></svg></div>
+            <h3>QR ile Self-Servis Sipariş</h3>
+            <p>Misafir masadaki QR&apos;ı okutur, telefonundan sipariş verir — uygulama indirmeden. Siz onaylarsınız, sipariş anında mutfağa düşer, durumu masadan izlenir.</p>
+            <div class="fcard__tags"><span>App yok</span><span>Anlık onay</span><span>Canlı durum</span></div>
+          </article>
+
+          <article class="fcard reveal">
+            <div class="fcard__icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM5 12h14M9 8h6M9 16h6"/></svg></div>
+            <h3>Adisyon Esnekliği</h3>
+            <p>Hesabı kişi kişi bölün, masaları birleştirin, siparişi başka masaya taşıyın. Herkes kendi payını kartla ya da nakit öder; &quot;kim ne yedi&quot; tartışması biter.</p>
+            <div class="fcard__tags"><span>Hesap böl</span><span>Masa taşı</span><span>Kişi bazlı ödeme</span></div>
+          </article>
+
+          <article class="fcard reveal">
+            <div class="fcard__icon"><svg viewBox="0 0 24 24"><path d="M3 5h18v11H3zM3 16l3 3M21 16l-3 3M8 9h8M8 12h5"/></svg></div>
+            <h3>Mutfak Ekranı (KDS)</h3>
+            <p>Siparişler mutfağa gerçek zamanlı düşer. Hazırlanıyor → hazır → servis akışı, geçen süre sayacıyla. Kaybolan fiş, unutulan sipariş, &quot;benim siparişim nerede&quot; yok.</p>
+            <div class="fcard__tags"><span>Gerçek zamanlı</span><span>Süre takibi</span><span>Dokunmatik</span></div>
+          </article>
+
+          <article class="fcard reveal">
+            <div class="fcard__icon"><svg viewBox="0 0 24 24"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 13h18M6 9V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></div>
+            <h3>Oda Folio Entegrasyonu</h3>
+            <p>Otel misafirinin restoran ya da bar hesabını tek tıkla odasına yazın. minirez/maxirez PMS ile entegre — resepsiyonla mutabakat derdi, kâğıt fiş trafiği biter.</p>
+            <div class="fcard__tags"><span>PMS entegre</span><span>Tek tık</span><span>Otel F&amp;B</span></div>
+          </article>
+
+          <article class="fcard reveal">
+            <div class="fcard__icon"><svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5zM3 8v8l9 5 9-5V8M12 13v8"/></svg></div>
+            <h3>Akıllı Stok</h3>
+            <p>Her satışta reçeteye göre stok otomatik (atomik) düşer. Kritik seviye uyarısı, tükenme tahmini, fire ve iade takibi — sayım gecesi sürpriz çıkmaz.</p>
+            <div class="fcard__tags"><span>Otomatik düşüm</span><span>Kritik uyarı</span><span>Fire/iade</span></div>
+          </article>
+
+          <article class="fcard reveal">
+            <div class="fcard__icon"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-2-1.5L14 21l-2-1.5L10 21l-2-1.5L6 21zM9 8h6M9 12h6"/></svg></div>
+            <h3>Kasa &amp; Vardiya</h3>
+            <p>Vardiya açın, kapatın; Z-raporu tek tuş. Nakit-kart mutabakatı, kasa açılış/kapanış ve sapma uyarısı. &quot;Kasa neden tutmuyor&quot; sorusu tarihe karışır.</p>
+            <div class="fcard__tags"><span>Z-raporu</span><span>Mutabakat</span><span>Sapma uyarısı</span></div>
+          </article>
+
+          <article class="fcard reveal">
+            <div class="fcard__icon"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+            <h3>Denetim İzi &amp; Raporlar</h3>
+            <p>Her iptal, her void, her indirim loglu. Garson performansı, ürün satış ve saatlik ciro raporları; Excel ve PDF olarak elinizin altında.</p>
+            <div class="fcard__tags"><span>Tam log</span><span>Garson performansı</span><span>İptal/void</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== QR SELF-SERVİS ====================== -->
+    <section class="section section--light spotlight" id="qr-siparis">
+      <div class="container spotlight__inner spotlight__inner--flip">
+        <div class="spotlight__copy reveal">
+          <span class="kicker kicker--accent">QR self-servis</span>
+          <h2>Misafir masadan sipariş versin,<br/><span class="grad-text">app indirmeden.</span></h2>
+          <p>Masadaki QR okutulur, menü tarayıcıda açılır, sipariş verilir. Siz POS&apos;tan onaylarsınız; sipariş anında mutfağa düşer. Personel azken bile masa dönüş hızı artar.</p>
+          <ul class="ticklist">
+            <li>QR menü TR/EN çift dil, fotoğraflı</li>
+            <li>Onay kuyruğu: onay bekliyor → mutfağa gönderildi → hazırlanıyor → servise hazır</li>
+            <li>Garson masada kalır, adisyon karışmaz</li>
+          </ul>
+        </div>
+        <div class="spotlight__visual reveal">
+          <div class="qrdemo" id="qrdemo">
+            <div class="phone">
+              <div class="phone__bezel">
+                <span class="phone__cam"></span>
+                <div class="phone__screen" id="qrScreen"></div>
+              </div>
+              <div class="phone__dots" id="qrDots"><i class="is-on"></i><i></i><i></i></div>
+            </div>
+            <div class="qrqueue">
+              <div class="qrqueue__title"><span class="qrqueue__live"></span> POS · Onay kuyruğu</div>
+              <div class="qrqueue__item is-muted">
+                <div class="qrqueue__row"><strong>Masa 3</strong><span class="qrbadge qrbadge--done">Servise hazır</span></div>
+                <p>1× Mercimek · 2× Köfte</p>
+              </div>
+              <div class="qrqueue__item" id="qrTicket" hidden>
+                <div class="qrqueue__row"><strong>Masa 7</strong><span class="qrbadge" id="qrBadge">Onay bekliyor</span></div>
+                <p>2× Lahmacun · 1× Ayran · 1× Künefe</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== KDS / MUTFAK ====================== -->
+    <section class="section section--light section--tint spotlight" id="mutfak">
+      <div class="container spotlight__inner">
+        <div class="spotlight__copy reveal">
+          <span class="kicker">Mutfak ekranı · KDS</span>
+          <h2>Mutfak hiç şaşırmasın,<br/><span class="grad-text">fiş kaybolmasın.</span></h2>
+          <p>Siparişler mutfağa gerçek zamanlı düşer ve kanban akışında ilerler. Her fişin geçen süresi sayaçla görünür; gecikme büyümeden fark edilir. &quot;Hazır&quot; olunca servise haber gider.</p>
+          <ul class="ticklist">
+            <li>Yeni → Hazırlanıyor → Hazır → Servis akışı</li>
+            <li>Her fişte <strong>mm:ss</strong> geçen süre sayacı</li>
+            <li>İstasyon bazlı yönlendirme, dokunmatik</li>
+          </ul>
+        </div>
+        <div class="spotlight__visual reveal">
+          <div class="kds" id="kds">
+            <div class="kds__lane" data-lane="0"><div class="kds__lanehead">Yeni <span class="kds__count">0</span></div><div class="kds__cards"></div></div>
+            <div class="kds__lane" data-lane="1"><div class="kds__lanehead">Hazırlanıyor <span class="kds__count">0</span></div><div class="kds__cards"></div></div>
+            <div class="kds__lane" data-lane="2"><div class="kds__lanehead">Hazır <span class="kds__count">0</span></div><div class="kds__cards"></div></div>
+            <div class="kds__lane" data-lane="3"><div class="kds__lanehead">Servis <span class="kds__count">0</span></div><div class="kds__cards"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== ODA FOLİO (USP) ====================== -->
+    <section class="section section--light spotlight" id="oda-folio">
+      <div class="container spotlight__inner spotlight__inner--flip">
+        <div class="spotlight__copy reveal">
+          <span class="kicker kicker--accent">Oda folio · PMS</span>
+          <h2>F&amp;B adisyonunu<br/><span class="grad-text">tek tıkla odaya yaz.</span></h2>
+          <p>Otel misafirinin restoran, bar ya da oda servisi hesabını odasına yazmak tek dokunuş. minirez/maxirez PMS ile entegre çalışır; resepsiyonla mutabakat derdi ve kâğıt fiş trafiği biter.</p>
+          <ul class="ticklist">
+            <li>Adisyon anında doğru odanın foliosuna işlenir</li>
+            <li>Restoran, bar, minibar ve oda servisi tek sistemde</li>
+            <li>Gün sonu mutabakatı resepsiyonla otomatik tutar</li>
+          </ul>
+        </div>
+        <div class="spotlight__visual reveal">
+          <div class="folio" id="folio">
+            <div class="folio__src">
+              <div class="folio__row"><strong>Masa 4 · Bar</strong><span class="pill pill--new">Açık adisyon</span></div>
+              <ul class="folio__items">
+                <li>2× Kokteyl <b>₺560</b></li>
+                <li>1× Meze tabağı <b>₺220</b></li>
+                <li>1× Su <b>₺60</b></li>
+              </ul>
+              <div class="folio__total">Toplam <b>₺840</b></div>
+              <button class="btn btn--primary btn--sm" id="folioBtn" type="button">Odaya yaz →</button>
+              <div class="folio__chip" id="folioChip" aria-hidden="true">₺840 · Masa 4</div>
+            </div>
+            <div class="folio__arrow" aria-hidden="true">→</div>
+            <div class="folio__dst">
+              <div class="folio__roomhead"><span class="folio__roomdot"></span> Oda 214 · Deniz Yılmaz</div>
+              <div class="folio__lines">
+                <div class="folio__line"><span>Konaklama (2 gece)</span><b>₺6.400</b></div>
+                <div class="folio__line"><span>Mini bar</span><b>₺180</b></div>
+                <div class="folio__line folio__line--new" id="folioNew"><span>F&amp;B · Bar adisyonu (Masa 4)</span><b>₺840</b></div>
+              </div>
+              <div class="folio__toast" id="folioToast" role="status">✓ PMS foliosuna işlendi</div>
+            </div>
+            <div class="folio__sum">Bugün odaya yazılan <b>₺<span id="folioCount">0</span></b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CİRO & YOĞUNLUK ====================== -->
+    <section class="section section--light section--tint spotlight" id="ciro">
+      <div class="container spotlight__inner">
+        <div class="spotlight__copy reveal">
+          <span class="kicker">Ciro &amp; yoğunluk</span>
+          <h2>Günü tahmin etmeyin,<br/><span class="grad-text">izleyin.</span></h2>
+          <p>Ciro saat saat, ödeme türü türü önünüze gelir. Hangi saat doluyor, hangi gün sakin — yoğun saat ısı haritasıyla net görünür. Personeli ve mutfağı buna göre kurarsınız.</p>
+          <ul class="ticklist">
+            <li>Kümülatif ciro eğrisi, kart/nakit kırılımı</li>
+            <li>Gün × saat yoğunluk ısı haritası</li>
+            <li>AI yoğun saati önceden tahmin eder</li>
+          </ul>
+        </div>
+        <div class="spotlight__visual reveal">
+          <div class="bigchart">
+            <div class="bigchart__head">
+              <span>Ciro &amp; sipariş yoğunluğu</span>
+              <span class="bigchart__legend">
+                <span><i class="lg lg--line"></i>Ciro</span>
+                <span><i class="lg lg--card"></i>Kart</span>
+                <span><i class="lg lg--in"></i>Nakit</span>
+              </span>
+            </div>
+            <svg id="bigChart" viewBox="0 0 640 250" preserveAspectRatio="none" aria-label="Günlük ciro ve ödeme yoğunluğu grafiği">
+              <defs>
+                <linearGradient id="bigFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#ff7a00" stop-opacity=".28"/>
+                  <stop offset="1" stop-color="#ff7a00" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="lineGrad2" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#ffb02e"/><stop offset=".6" stop-color="#ff7a00"/><stop offset="1" stop-color="#f24a0a"/>
+                </linearGradient>
+              </defs>
+              <g id="bigGrid"></g>
+              <g id="bigBars"></g>
+              <path id="bigArea" fill="url(#bigFill)" d=""></path>
+              <path id="bigLine" fill="none" stroke="url(#lineGrad2)" stroke-width="3.5" stroke-linecap="round" d=""></path>
+              <g id="bigDots"></g>
+            </svg>
+            <div class="bigchart__foot">
+              <span>12:00</span><span>15:00</span><span>18:00</span><span>21:00</span><span>23:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container heatwrap reveal">
+        <div class="heat" id="heat">
+          <div class="heat__head">
+            <span>Yoğun saat ısı haritası <em>(gün × saat)</em></span>
+            <span class="heat__legend">az<i></i><i></i><i></i><i></i>yoğun</span>
+          </div>
+          <div class="heat__grid" id="heatGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== SEGMENTS ====================== -->
+    <section class="section section--light" id="kimler">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="kicker kicker--accent">Kimler için?</span>
+          <h2>Sizin servisinize göre.</h2>
+          <p>Restorandan otele, kafeden hızlı servise. Eski POS&apos;la, defterle veya WhatsApp adisyonuyla boğuşan herkes için yaptık.</p>
+        </div>
+        <div class="segs">
+          <article class="seg reveal">
+            <div class="seg__photo"><img src="/assets/photos/restoran.jpg" alt="Restoran masasında elindeki dokunmatik POS terminalinden adisyon alan garson" width="1672" height="941" loading="lazy" onerror="this.closest('.seg').classList.add('img-fail')" /></div>
+            <div class="seg__body">
+              <h3>Restoran &amp; Adisyon</h3>
+              <p>Masa planı, garson el terminali, hesap bölme ve hızlı ödeme. Yoğun serviste sipariş karışmaz, mutfak şaşmaz.</p>
+              <div class="fcard__tags"><span>Masa planı</span><span>Hesap böl</span></div>
+            </div>
+          </article>
+          <article class="seg reveal">
+            <div class="seg__photo"><img src="/assets/photos/otel.jpg" alt="Otel restoranında oda servisi hazırlayan, adisyonu odaya yazan üniformalı görevli" width="1672" height="941" loading="lazy" onerror="this.closest('.seg').classList.add('img-fail')" /></div>
+            <div class="seg__body">
+              <h3>Otel &amp; Oda Servisi</h3>
+              <p>Restoran, bar, minibar ve oda servisi tek sistemde; adisyon tek tıkla oda folyosuna. minirez/maxirez ile uçtan uca entegre.</p>
+              <div class="fcard__tags"><span>Oda folio</span><span>Çok-outlet</span></div>
+            </div>
+          </article>
+          <article class="seg reveal">
+            <div class="seg__photo"><img src="/assets/photos/kafebar.jpg" alt="Bar tezgâhının arkasında dokunmatik POS terminalinde ödeme alan barista" width="1672" height="941" loading="lazy" onerror="this.closest('.seg').classList.add('img-fail')" /></div>
+            <div class="seg__body">
+              <h3>Kafe &amp; Bar</h3>
+              <p>Hızlı adisyon, açık hesap, happy-hour fiyatları ve gün sonu Z-raporu. Tezgâhta sıra büyümeden döner.</p>
+              <div class="fcard__tags"><span>Açık hesap</span><span>Z-raporu</span></div>
+            </div>
+          </article>
+          <article class="seg reveal">
+            <div class="seg__photo"><img src="/assets/photos/qrsiparis.jpg" alt="Restoran masasındaki QR kodu telefonuyla okutarak sipariş veren genç misafir" width="1672" height="941" loading="lazy" onerror="this.closest('.seg').classList.add('img-fail')" /></div>
+            <div class="seg__body">
+              <h3>QR Self-Servis</h3>
+              <p>Masadan QR ile sipariş, uygulamasız. Personel azken bile masa dönüş hızı artar.</p>
+              <div class="fcard__tags"><span>QR menü</span><span>Self-servis</span></div>
+            </div>
+          </article>
+          <article class="seg reveal">
+            <div class="seg__photo"><img src="/assets/photos/magaza.jpg" alt="Hızlı servis tezgâhında dokunmatik POS ekranından satış yapan güleryüzlü kasiyer" width="1672" height="941" loading="lazy" onerror="this.closest('.seg').classList.add('img-fail')" /></div>
+            <div class="seg__body">
+              <h3>Hızlı Servis / Kasa</h3>
+              <p>Dokunmatik kasa, hızlı ürün seçimi, paket/gel-al akışı ve anlık ciro. Gel-al yoğunluğunda hata payı düşer.</p>
+              <div class="fcard__tags"><span>Dokunmatik kasa</span><span>Paket/gel-al</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== STOK & KASA / GÜN SONU ====================== -->
+    <section class="section section--light section--tint spotlight" id="kasa">
+      <div class="container spotlight__inner spotlight__inner--flip">
+        <div class="spotlight__copy reveal">
+          <span class="kicker">Kasa &amp; gün sonu</span>
+          <h2>Servis biter,<br/><span class="grad-text">vardiya beş dakikada kapanır.</span></h2>
+          <p>Vardiya kapanışında nakit, kart, yemek kartı ve oda folio ayrı ayrı toplanır; Z-raporu tek tuş. Kasa tutmazsa sapma anında uyarır. Stok satışla düşer, kritik ürün sayım gecesini beklemez.</p>
+          <ul class="ticklist">
+            <li>Nakit-kart-yemek kartı-oda folio mutabakatı</li>
+            <li>Z-raporu ve kasa sapması uyarısı</li>
+            <li>Reçeteden atomik stok düşümü, kritik uyarı</li>
+          </ul>
+        </div>
+        <div class="spotlight__visual reveal">
+          <div class="closeout" id="closeout">
+            <div class="closeout__head"><strong>Vardiya kapanışı</strong><span class="closeout__z">Z-raporu</span></div>
+            <div class="closeout__rows">
+              <div class="closeout__row"><span><i class="dot dot--cash"></i>Nakit</span><b>₺28.260</b></div>
+              <div class="closeout__row"><span><i class="dot dot--card"></i>Kart</span><b>₺71.950</b></div>
+              <div class="closeout__row"><span><i class="dot dot--meal"></i>Yemek kartı</span><b>₺15.420</b></div>
+              <div class="closeout__row"><span><i class="dot dot--room"></i>Oda folio</span><b>₺12.850</b></div>
+              <div class="closeout__row closeout__row--total"><span>Toplam ciro</span><b>₺128.480</b></div>
+            </div>
+            <div class="closeout__warn"><span>⚠ Kasa sapması</span><b>₺420</b></div>
+            <div class="closeout__stock">
+              <span class="closeout__subt">Stok seviyeleri</span>
+              <div class="stockbar"><label>Kıyma</label><div class="stockbar__track"><i class="is-crit" style="--w:16%"></i></div><em>kritik</em></div>
+              <div class="stockbar"><label>Ayran</label><div class="stockbar__track"><i style="--w:58%"></i></div><em>58%</em></div>
+              <div class="stockbar"><label>Künefe</label><div class="stockbar__track"><i style="--w:74%"></i></div><em>74%</em></div>
+            </div>
+            <ul class="checks">
+              <li>Kasa sayımı tamam</li>
+              <li>Nakit-kart mutabakatı</li>
+              <li>Z-raporu alındı</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== STATS ====================== -->
+    <section class="section section--light stats" id="hiz">
+      <div class="container">
+        <div class="stats__grid">
+          <div class="stat reveal"><b>Günün cirosu</b><span>Nakit, kart, yemek kartı ve oda folio tek bakışta.</span></div>
+          <div class="stat reveal"><b>Açık masalar</b><span>Hangi masa ne kadar süredir açık, anında görün.</span></div>
+          <div class="stat reveal"><b>Mutfak süresi</b><span>Ortalama hazırlık süresi istasyon istasyon ölçülür.</span></div>
+          <div class="stat reveal"><b>QR sipariş oranı</b><span>Self-servisin servise kattığı hızı görün.</span></div>
+          <div class="stat reveal"><b>Vardiya &amp; Z-raporu</b><span>Gün sonu kapanışı, mutabakat ve sapma tek ekranda.</span></div>
+          <div class="stat reveal"><b>AI günlük özet</b><span>Paneli açmadan riski ve fırsatı kısa, net okuyun.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== VARDİYA / GÜN AKIŞI ====================== -->
+    <section class="section section--light section--tint" id="gun">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="kicker">Gün akışı</span>
+          <h2>Açılıştan Z-raporuna,<br/><span class="grad-text">gün kendini yönetir.</span></h2>
+          <p>Siz servise odaklanın; mixipos günü baştan sona arka planda yürütür.</p>
+        </div>
+        <div class="timeline">
+          <div class="tl reveal"><span class="tl__time">09:00</span><h3>Açılış</h3><p>Vardiya açılır, kasa devri ve başlangıç sayımı kaydedilir.</p></div>
+          <div class="tl reveal"><span class="tl__time">12:00</span><h3>Servis</h3><p>QR ve garson siparişleri tek akışta mutfağa düşer.</p></div>
+          <div class="tl reveal"><span class="tl__time">20:00</span><h3>Yoğun saat</h3><p>AI yoğunluğu tahmin eder, personel önerisi verir.</p></div>
+          <div class="tl reveal"><span class="tl__time">22:30</span><h3>Stok</h3><p>Satışla stok düşer, kritik ürün uyarısı gelir.</p></div>
+          <div class="tl reveal"><span class="tl__time">23:30</span><h3>Gün sonu</h3><p>Z-raporu, nakit-kart mutabakatı ve sapma kontrolü.</p></div>
+          <div class="tl reveal"><span class="tl__time">00:15</span><h3>Özet</h3><p>Günün cirosu ve performansı telefonunuza özet geçilir.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== ENTEGRASYONLAR & CANLI MİMARİ ====================== -->
+    <section class="section section--light" id="entegrasyon">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="kicker kicker--accent">Entegrasyonlar &amp; canlı mimari</span>
+          <h2>Her şey <span class="grad-text">aynı çatı altında.</span></h2>
+          <p>QR menü, mutfak ekranı, ödeme, PMS oda folio ve raporlar ayrı eklenti değil; mixipos merkezinde anlık senkronla bağlı çalışır.</p>
+        </div>
+        <div class="constel reveal" id="constel">
+          <svg class="constel__svg" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+            <g class="constel__lines" id="constelLines"></g>
+          </svg>
+          <div class="constel__node constel__node--hub" style="left:50%;top:50%">mixipos</div>
+          <div class="constel__node" style="left:22%;top:16%">minirez / maxirez</div>
+          <div class="constel__node" style="left:78%;top:16%">PMS oda folio</div>
+          <div class="constel__node" style="left:9%;top:50%">Mutfak Ekranı</div>
+          <div class="constel__node" style="left:91%;top:50%">iyzico</div>
+          <div class="constel__node" style="left:20%;top:84%">QR Menü</div>
+          <div class="constel__node" style="left:80%;top:84%">PayTR</div>
+          <div class="constel__node" style="left:50%;top:92%">Raporlar</div>
+        </div>
+        <p class="constel__note reveal">Çok-şube, rol bazlı yetki ve anlık senkron — tek restorandan zincire kadar aynı sistemle büyürsünüz.</p>
+      </div>
+    </section>
+
+    <!-- ====================== SEÇİM KRİTERLERİ ====================== -->
+    <section class="section section--light section--tint seo-compare" id="kriterler">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="kicker">Seçim kriterleri</span>
+          <h2>Adisyon POS&apos;u seçerken nelere bakmalı?</h2>
+          <p>Genel kasa programları başlangıç için yeterli olabilir. Restoran, kafe, bar ve otel F&amp;B&apos;de ise karar anında adisyon mantığı, QR-mutfak-ödeme bütünlüğü ve otel/çok-şube ihtiyaçları belirleyici olur.</p>
+        </div>
+
+        <div class="grid compare-grid">
+          <article class="fcard reveal">
+            <div class="fcard__icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM5 12h14M9 8h6M9 16h6"/></svg></div>
+            <h3>Kasa değil, adisyon mantığı</h3>
+            <p>Masa planı, açık adisyon, hesap böl/birleştir ve kişi bazlı ödeme çekirdekte olmalı. Mağaza kasası mantığıyla kurulan sistemler yoğun serviste bu akışta zorlanır.</p>
+            <div class="fcard__tags"><span>adisyon programı</span><span>hesap bölme</span></div>
+          </article>
+
+          <article class="fcard reveal">
+            <div class="fcard__icon"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM15 15h2M19 15v2M15 19h4"/></svg></div>
+            <h3>QR, mutfak ve ödeme bütünleşik</h3>
+            <p>QR self-servis, mutfak ekranı (KDS) ve iyzico/PayTR ödeme ayrı ayrı eklenti değil, aynı panelde tek akış olmalı; entegrasyon yükü sizde kalmamalı.</p>
+            <div class="fcard__tags"><span>qr sipariş</span><span>mutfak ekranı (kds)</span></div>
+          </article>
+
+          <article class="fcard reveal">
+            <div class="fcard__icon"><svg viewBox="0 0 24 24"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 13h18M6 9V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></div>
+            <h3>Otel F&amp;B ve çok şube</h3>
+            <p>Oda folio (PMS) entegrasyonu, çok-outlet ve rol bazlı yetki olmalı ki tek restorandan otele ve zincire kadar aynı sistemle büyüyebilesiniz.</p>
+            <div class="fcard__tags"><span>oda folyo entegrasyonu</span><span>çok şubeli pos</span></div>
+          </article>
+        </div>
+
+        <p class="compare-note reveal">Bu bölüm, satın alma araştırması yapan işletmeler için marka karşılaştırması yerine kategori değerlendirme kriterlerini açıklar.</p>
+      </div>
+    </section>
+
+    <!-- ====================== SAHA SENARYOLARI ====================== -->
+    <section class="section section--light" id="senaryolar">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="kicker kicker--accent">Saha senaryoları</span>
+          <h2>Tipik bir mixipos günü.</h2>
+          <p>Pazarlama vaadi değil, sahada işleyen akışlar. İşte bir mixipos gününden üç kesit.</p>
+        </div>
+        <div class="scns">
+          <article class="scn reveal">
+            <div class="scn__tag">Akşam yoğunluğu</div>
+            <p>20.00–22.00 doluyken QR siparişler mutfağa kendiliğinden düşer, garson masada kalır; adisyon karışmaz.</p>
+          </article>
+          <article class="scn reveal">
+            <div class="scn__tag">Otel oda servisi</div>
+            <p>Bar ve oda servisi adisyonu tek tıkla misafirin odasına yazılır; resepsiyonla mutabakat derdi biter.</p>
+          </article>
+          <article class="scn reveal">
+            <div class="scn__tag">Kapanış ve kasa</div>
+            <p>Servis biter, vardiya kapanır: Z-raporu, nakit-kart mutabakatı ve sapma kontrolü beş dakikada.</p>
+          </article>
+        </div>
+        <p class="scns__note reveal">Tipik bir mixipos gününden kesitler — örnek senaryolardır.</p>
+      </div>
+    </section>
+
+    <!-- ====================== DEMO CTA ====================== -->
+    <section class="demo" id="demo">
+      <div class="demo__glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section__head section__head--center reveal">
+          <span class="kicker kicker--accent">Ücretsiz demo</span>
+          <h2>Restoranınıza özel<br/><span class="grad-text">canlı demo.</span></h2>
+          <p>Menünüzü birlikte kuralım, ekibinize 15 dakikada gösterelim. Taahhüt yok, kredi kartı yok.</p>
+        </div>
+
+        <div class="how reveal">
+          <div class="how__step"><b>1</b><h3>Demo planlayın</h3><p>Size uygun bir saatte arayalım ya da yazışalım.</p></div>
+          <div class="how__step"><b>2</b><h3>Menünüzü kuralım</h3><p>Ürünleri, masaları ve QR menüyü birlikte hazırlayalım.</p></div>
+          <div class="how__step"><b>3</b><h3>Ekiple deneyin</h3><p>Garson, mutfak ve kasa akışını gerçek serviste görün.</p></div>
+        </div>
+
+        <div class="demo__actions reveal">
+          <a class="btn btn--primary btn--lg btn--shine" href="https://wa.me/902426061991" target="_blank" rel="noopener">WhatsApp&apos;tan yazın</a>
+          <a class="btn btn--ghost btn--lg" href="tel:+902426061991">Hemen arayın · 0242 606 19 91</a>
+          <a class="btn btn--ghost btn--lg" href="mailto:info@mixipos.com?subject=mixipos%20demo%20talebi">Demo talep edin</a>
+        </div>
+        <p class="demo__note reveal">Restoran, kafe, bar ve otel F&amp;B için kurulum danışmanlığı dahil.</p>
+      </div>
+    </section>
+
+    <!-- ====================== SSS ====================== -->
+    <section class="section section--light" id="sss">
+      <div class="container container--narrow">
+        <div class="section__head reveal">
+          <span class="kicker">SSS</span>
+          <h2>Merak edilenler</h2>
+        </div>
+        <div class="faq reveal">
+          <details class="faq__item" open>
+            <summary>Kurulum gerekiyor mu, hangi cihazlarda çalışır?</summary>
+            <p>Kurulum yok. mixipos tarayıcıdan çalışır; <strong>tablet, telefon, dokunmatik POS terminali ve bilgisayarda</strong> aynı hesapla açılır.</p>
+          </details>
+          <details class="faq__item">
+            <summary>QR sipariş için misafir uygulama indirir mi?</summary>
+            <p>Hayır. Misafir masadaki QR kodu kamerasıyla okutur, menü tarayıcıda açılır ve sipariş verilir. İndirme veya üyelik gerekmez.</p>
+          </details>
+          <details class="faq__item">
+            <summary>İnternet kesilirse ne olur?</summary>
+            <p>Kısa bağlantı kesintilerinde açık adisyon ekranda kalır; bağlantı geri geldiğinde kayıtlar otomatik olarak eşitlenir.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Otel oda folyosuna nasıl bağlanır?</summary>
+            <p>minirez veya maxirez kullanıyorsanız mixipos PMS ile entegredir; F&amp;B adisyonunu tek tıkla misafirin odasına yazarsınız.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Hesap bölme ve kişi bazlı ödeme var mı?</summary>
+            <p>Evet. Hesabı kişiye veya kaleme göre bölün, masaları birleştirin, her payı ayrı kartla veya nakitle tahsil edin.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Mutfak ekranı (KDS) ayrı bir cihaz mı?</summary>
+            <p>Hayır, herhangi bir tablet veya ekran KDS&apos;e döner. Siparişler gerçek zamanlı düşer; hazırlanıyor → hazır akışıyla yönetilir.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Ödeme ve POS cihazı entegrasyonu var mı?</summary>
+            <p>iyzico ve PayTR ile online ödeme desteklenir; yerel banka POS cihazlarıyla uyumlu çalışır.</p>
+          </details>
+          <details class="faq__item">
+            <summary>minirez, maxirez ve mixifin ile ilişkisi nedir?</summary>
+            <p>Dördü de Adviceal ürünüdür ve aynı panel altyapısında çalışır. Oteli, acenteyi veya ön muhasebeyi zaten kullanıyorsanız mixipos&apos;a aynı hesapla geçersiniz.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== FINALE ====================== -->
+    <section class="finale">
+      <div class="container reveal">
+        <h2>Eski POS&apos;u kapatın.<br/><span class="grad-text">mixipos&apos;u açın.</span></h2>
+        <p>Restoran, kafe, bar veya otel — bugün ücretsiz demo planlayın.</p>
+        <div class="finale__actions">
+          <a class="btn btn--primary btn--lg btn--shine" href="#demo">Ücretsiz Demo</a>
+          <a class="btn btn--ghost btn--lg" href="tel:+902426061991">Bizi arayın · 0242 606 19 91</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brandcol">
+          <a class="brand" href="#top" aria-label="mixipos ana sayfa">
+            <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+              <defs>
+                <linearGradient id="footmark" x1="0" y1="1" x2="1" y2="0">
+                  <stop offset="0" stop-color="#ffb02e"/><stop offset=".52" stop-color="#ff7a00"/><stop offset="1" stop-color="#f24a0a"/>
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="28" height="28" rx="8" fill="url(#footmark)" opacity=".16"/>
+              <path d="M7 22.5V13l4.4 5 4.6-7 4.6 7L25 9.5" fill="none" stroke="url(#footmark)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="brand__word">mixipos</span>
+          </a>
+          <p>Restoran, kafe, bar ve otel F&amp;B için POS &amp; adisyon platformu. Bir <a href="https://adviceal.com" target="_blank" rel="noopener">Adviceal</a> ürünüdür.</p>
+          <div class="footer__social">
+            <a href="https://facebook.com/adviceal" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h2.5V5H14a4 4 0 0 0-4 4v2H7.5v3H10v6h3v-6h2.5l.5-3H13V9a1 1 0 0 1 1-1z"/></svg></a>
+            <a href="https://instagram.com/advicealcom" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="7" r="1.3"/></svg></a>
+            <a href="https://linkedin.com/company/adviceal" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M5 9h3v11H5z M6.5 4a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6z M11 9h2.8v1.6c.6-1 1.8-1.9 3.5-1.9 3 0 3.7 1.8 3.7 4.6V20h-3v-6c0-1.5-.3-2.6-1.8-2.6-1.6 0-2.2 1.2-2.2 2.7V20h-3z"/></svg></a>
+            <a href="https://twitter.com/adviceal" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M4 4l7 8.5L4.5 20H7l5.2-6 5 6H20l-7.2-8.7L19.5 4H17l-4.8 5.5L7.5 4z"/></svg></a>
+            <a href="https://youtube.com/@adviceal" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M12 5.5c-4 0-6.6.3-7.6.6-.8.3-1.3.8-1.4 1.7C2.8 9 2.7 10.4 2.7 12s.1 3 .3 4.2c.1.9.6 1.4 1.4 1.7 1 .3 3.6.6 7.6.6s6.6-.3 7.6-.6c.8-.3 1.3-.8 1.4-1.7.2-1.2.3-2.6.3-4.2s-.1-3-.3-4.2c-.1-.9-.6-1.4-1.4-1.7-1-.3-3.6-.6-7.6-.6zM10 9.5l5.5 2.5L10 14.5z"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h4>Ürün</h4>
+          <a href="#ozellikler">Özellikler</a>
+          <a href="#qr-siparis">QR self-servis</a>
+          <a href="#mutfak">Mutfak ekranı (KDS)</a>
+          <a href="#oda-folio">Oda folio</a>
+          <a href="#ai-dashboard">AI dashboard</a>
+          <a href="#sss">Sık sorulan sorular</a>
+        </div>
+
+        <div class="footer__col">
+          <h4>Adviceal ailesi</h4>
+          <a href="https://minirez.com" target="_blank" rel="noopener">minirez · otel yönetimi</a>
+          <a href="https://maxirez.com" target="_blank" rel="noopener">maxirez · acente teknolojisi</a>
+          <a href="https://mixifin.com" target="_blank" rel="noopener">mixifin · ön muhasebe</a>
+          <a href="#top">mixipos · POS &amp; adisyon</a>
+          <a href="https://adviceal.com" target="_blank" rel="noopener">adviceal.com</a>
+        </div>
+
+        <div class="footer__col">
+          <h4>İletişim</h4>
+          <p>Akdeniz Üniversitesi Uluğbey Ar-Ge Binası No: 3A/5 Teknokent, Antalya</p>
+          <a href="tel:+902426061991">+90 242 606 19 91</a>
+          <a href="https://wa.me/902426061991" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="mailto:info@mixipos.com">info@mixipos.com</a>
+        </div>
+      </div>
+      <div class="footer__legal">
+        <span>© 2026 AdviceAl Online Danışmanlık Turizm Sanayi ve Ticaret Ltd. Şti. Tüm hakları saklıdır.</span>
+        <span>mixipos · Adviceal ailesi</span>
+      </div>
+    </div>
+  </footer>
+
+  <script is:inline src="/script.js?v=1"></script>
+</body>
+</html>
