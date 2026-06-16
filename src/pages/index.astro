@@ -238,7 +238,7 @@ const jsonLd = {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=1" />
+  <link rel="stylesheet" href="/styles.css?v=2" />
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
 </head>
 <body>
@@ -256,7 +256,8 @@ const jsonLd = {
             </linearGradient>
           </defs>
           <rect width="32" height="32" rx="8" fill="url(#navmark)" opacity=".16"/>
-          <path d="M7 22.5V13l4.4 5 4.6-7 4.6 7L25 9.5" fill="none" stroke="url(#navmark)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 6.6H23V23.6l-1.75 1.6-1.75-1.6-1.75 1.6-1.75-1.6-1.75 1.6-1.75-1.6-1.75 1.6-1.75-1.6V6.6Z" fill="none" stroke="url(#navmark)" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M12 11.4H20M12 14.6H20M12 17.8H16.6" fill="none" stroke="url(#navmark)" stroke-width="1.8" stroke-linecap="round"/>
         </svg>
         <span class="brand__word">mixipos</span>
       </a>
@@ -273,6 +274,10 @@ const jsonLd = {
           <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M6.6 3h3l1.5 4.2-2 1.5a13 13 0 0 0 6.2 6.2l1.5-2L21 14.4v3A2.6 2.6 0 0 1 18.4 20 15.4 15.4 0 0 1 4 5.6 2.6 2.6 0 0 1 6.6 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
           0242 606 19 91
         </a>
+        <a class="btn btn--ghost btn--sm nav__login" href="https://app.mixipos.com/login">
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3M13.5 4H19a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Giriş Yap
+        </a>
         <a class="btn btn--primary btn--sm btn--shine" href="#demo">Ücretsiz Demo</a>
       </div>
       <button class="nav__burger" id="burger" aria-label="Menüyü aç" aria-expanded="false">
@@ -287,6 +292,7 @@ const jsonLd = {
       <a href="#ai-dashboard">AI</a>
       <a href="#sss">SSS</a>
       <a href="tel:+902426061991">0242 606 19 91</a>
+      <a class="btn btn--ghost" href="https://app.mixipos.com/login">Giriş Yap</a>
       <a class="btn btn--primary" href="#demo">Ücretsiz Demo</a>
     </div>
   </header>
@@ -491,35 +497,39 @@ const jsonLd = {
       </div>
     </section>
 
-    <!-- ====================== AI DASHBOARD ====================== -->
-    <section class="section section--light section--tint" id="ai-dashboard">
-      <div class="container spotlight__inner">
+    <!-- ====================== QR SELF-SERVİS ====================== -->
+    <section class="section section--light spotlight" id="qr-siparis">
+      <div class="container spotlight__inner spotlight__inner--flip">
         <div class="spotlight__copy reveal">
-          <span class="kicker">Yapay zekâ</span>
-          <h2>Sorun, panel cevaplasın.<br/><span class="grad-text">Veriden, anında.</span></h2>
-          <p>mixipos asistanı süs değil. &quot;Bugün en çok ne sattım?&quot; deyin, listelesin. Yoğun saati sorun, tahmin etsin. Stok bitmeden uyarsın, tedarikçiye taslak hazırlasın — siz sadece onaylayın.</p>
+          <span class="kicker kicker--accent">QR self-servis</span>
+          <h2>Misafir masadan sipariş versin,<br/><span class="grad-text">app indirmeden.</span></h2>
+          <p>Masadaki QR okutulur, menü tarayıcıda açılır, sipariş verilir. Siz POS&apos;tan onaylarsınız; sipariş anında mutfağa düşer. Personel azken bile masa dönüş hızı artar.</p>
           <ul class="ticklist">
-            <li>Yoğun saatleri ve ciroyu önceden tahmin eder</li>
-            <li>Anormal iade, iptal ve indirimleri yakalar</li>
-            <li>&quot;Bugün neyi öne çıkar?&quot; diye somut öneri verir</li>
-            <li>Her ekranda içgörü kartı: düşen stok, yavaşlayan masa, artan iptal</li>
+            <li>QR menü TR/EN çift dil, fotoğraflı</li>
+            <li>Onay kuyruğu: onay bekliyor → mutfağa gönderildi → hazırlanıyor → servise hazır</li>
+            <li>Garson masada kalır, adisyon karışmaz</li>
           </ul>
-          <p class="spotlight__hint"><kbd>Ctrl</kbd> + <kbd>K</kbd> ile her ürüne, masaya, rapora saniyeler içinde ulaşın.</p>
         </div>
         <div class="spotlight__visual reveal">
-          <div class="chat" id="chat">
-            <div class="chat__head">
-              <span class="chat__status"></span> mixipos asistan
-              <span class="chat__live">canlı veri</span>
-              <span class="chat__badge">AI</span>
+          <div class="qrdemo" id="qrdemo">
+            <div class="phone">
+              <div class="phone__bezel">
+                <span class="phone__cam"></span>
+                <div class="phone__screen" id="qrScreen"></div>
+              </div>
+              <div class="phone__dots" id="qrDots"><i class="is-on"></i><i></i><i></i></div>
             </div>
-            <div class="chat__body" id="chatBody"></div>
-            <div class="chat__chips" id="chatChips">
-              <button type="button" data-q="0">Bugün en çok ne sattım?</button>
-              <button type="button" data-q="1">En kârlı ürün hangisi?</button>
-              <button type="button" data-q="2">Akşam yoğunluğu nasıl?</button>
+            <div class="qrqueue">
+              <div class="qrqueue__title"><span class="qrqueue__live"></span> POS · Onay kuyruğu</div>
+              <div class="qrqueue__item is-muted">
+                <div class="qrqueue__row"><strong>Masa 3</strong><span class="qrbadge qrbadge--done">Servise hazır</span></div>
+                <p>1× Mercimek · 2× Köfte</p>
+              </div>
+              <div class="qrqueue__item" id="qrTicket" hidden>
+                <div class="qrqueue__row"><strong>Masa 7</strong><span class="qrbadge" id="qrBadge">Onay bekliyor</span></div>
+                <p>2× Lahmacun · 1× Ayran · 1× Künefe</p>
+              </div>
             </div>
-            <div class="chat__input" aria-hidden="true">Asistana sorun<span class="chat__caret"></span></div>
           </div>
         </div>
       </div>
@@ -594,40 +604,64 @@ const jsonLd = {
       </div>
     </section>
 
-    <!-- ====================== QR SELF-SERVİS ====================== -->
-    <section class="section section--light spotlight" id="qr-siparis">
-      <div class="container spotlight__inner spotlight__inner--flip">
+    <!-- ====================== AI DASHBOARD ====================== -->
+    <section class="section section--light section--tint" id="ai-dashboard">
+      <div class="container spotlight__inner">
         <div class="spotlight__copy reveal">
-          <span class="kicker kicker--accent">QR self-servis</span>
-          <h2>Misafir masadan sipariş versin,<br/><span class="grad-text">app indirmeden.</span></h2>
-          <p>Masadaki QR okutulur, menü tarayıcıda açılır, sipariş verilir. Siz POS&apos;tan onaylarsınız; sipariş anında mutfağa düşer. Personel azken bile masa dönüş hızı artar.</p>
+          <span class="kicker">Yapay zekâ</span>
+          <h2>Sorun, panel cevaplasın.<br/><span class="grad-text">Veriden, anında.</span></h2>
+          <p>mixipos asistanı süs değil. &quot;Bugün en çok ne sattım?&quot; deyin, listelesin. Yoğun saati sorun, tahmin etsin. Stok bitmeden uyarsın, tedarikçiye taslak hazırlasın — siz sadece onaylayın.</p>
           <ul class="ticklist">
-            <li>QR menü TR/EN çift dil, fotoğraflı</li>
-            <li>Onay kuyruğu: onay bekliyor → mutfağa gönderildi → hazırlanıyor → servise hazır</li>
-            <li>Garson masada kalır, adisyon karışmaz</li>
+            <li>Yoğun saatleri ve ciroyu önceden tahmin eder</li>
+            <li>Anormal iade, iptal ve indirimleri yakalar</li>
+            <li>&quot;Bugün neyi öne çıkar?&quot; diye somut öneri verir</li>
+            <li>Her ekranda içgörü kartı: düşen stok, yavaşlayan masa, artan iptal</li>
           </ul>
+          <p class="spotlight__hint"><kbd>Ctrl</kbd> + <kbd>K</kbd> ile her ürüne, masaya, rapora saniyeler içinde ulaşın.</p>
         </div>
         <div class="spotlight__visual reveal">
-          <div class="qrdemo" id="qrdemo">
-            <div class="phone">
-              <div class="phone__bezel">
-                <span class="phone__cam"></span>
-                <div class="phone__screen" id="qrScreen"></div>
-              </div>
-              <div class="phone__dots" id="qrDots"><i class="is-on"></i><i></i><i></i></div>
+          <div class="chat" id="chat">
+            <div class="chat__head">
+              <span class="chat__status"></span> mixipos asistan
+              <span class="chat__live">canlı veri</span>
+              <span class="chat__badge">AI</span>
             </div>
-            <div class="qrqueue">
-              <div class="qrqueue__title"><span class="qrqueue__live"></span> POS · Onay kuyruğu</div>
-              <div class="qrqueue__item is-muted">
-                <div class="qrqueue__row"><strong>Masa 3</strong><span class="qrbadge qrbadge--done">Servise hazır</span></div>
-                <p>1× Mercimek · 2× Köfte</p>
-              </div>
-              <div class="qrqueue__item" id="qrTicket" hidden>
-                <div class="qrqueue__row"><strong>Masa 7</strong><span class="qrbadge" id="qrBadge">Onay bekliyor</span></div>
-                <p>2× Lahmacun · 1× Ayran · 1× Künefe</p>
-              </div>
+            <div class="chat__body" id="chatBody"></div>
+            <div class="chat__chips" id="chatChips">
+              <button type="button" data-q="0">Bugün en çok ne sattım?</button>
+              <button type="button" data-q="1">En kârlı ürün hangisi?</button>
+              <button type="button" data-q="2">Akşam yoğunluğu nasıl?</button>
             </div>
+            <div class="chat__input" aria-hidden="true">Asistana sorun<span class="chat__caret"></span></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== GERÇEK EKRANLAR ====================== -->
+    <section class="section section--light shots" id="ekranlar">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="kicker kicker--accent">Ürünün kendisi</span>
+          <h2>Tasarım taslağı değil,<br/><span class="grad-text">gerçek ekranlar.</span></h2>
+          <p>Aşağıdakiler birebir mixipos arayüzünden: akıllı dashboard, dokunmatik POS terminali ve mutfak ekranı. Mockup değil, her gün sahada çalışan ürünün kendisi.</p>
+        </div>
+        <div class="shots__grid">
+          <figure class="shot shot--lead reveal">
+            <div class="shot__bar"><span class="shot__dot"></span><span class="shot__dot"></span><span class="shot__dot"></span><span class="shot__addr">app.mixipos.com/dashboard</span></div>
+            <div class="shot__frame"><img src="/assets/screens/dashboard.png" alt="mixipos akıllı dashboard: günlük gelir, sipariş sayısı, yoğunluk ısı haritası, en çok satan ürünler ve personel performansı" width="1919" height="988" loading="lazy" decoding="async" /></div>
+            <figcaption><strong>AI Akıllı Dashboard</strong> · canlı ciro, anomali tespiti, yoğunluk ısı haritası ve ciro tahmini</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <div class="shot__bar"><span class="shot__dot"></span><span class="shot__dot"></span><span class="shot__dot"></span><span class="shot__addr">app.mixipos.com/pos</span></div>
+            <div class="shot__frame"><img src="/assets/screens/pos-terminal.png" alt="mixipos dokunmatik POS terminali: ürün ızgarası, açık adisyon, hesap böl ve nakit/kart ile ödeme" width="1915" height="944" loading="lazy" decoding="async" /></div>
+            <figcaption><strong>Dokunmatik POS &amp; Adisyon</strong> · masa planı, açık hesap, hesap böl ve hızlı ödeme</figcaption>
+          </figure>
+          <figure class="shot shot--dark reveal">
+            <div class="shot__bar"><span class="shot__dot"></span><span class="shot__dot"></span><span class="shot__dot"></span><span class="shot__addr">app.mixipos.com/kds</span></div>
+            <div class="shot__frame"><img src="/assets/screens/mutfak-kds.png" alt="mixipos mutfak ekranı (KDS): yeni, hazırlanıyor ve servise hazır sipariş akışı, masa ve geçen süre takibi" width="1914" height="949" loading="lazy" decoding="async" /></div>
+            <figcaption><strong>Mutfak Ekranı (KDS)</strong> · gerçek zamanlı sipariş akışı ve geçen süre takibi</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -986,7 +1020,7 @@ const jsonLd = {
         <div class="demo__actions reveal">
           <a class="btn btn--primary btn--lg btn--shine" href="https://wa.me/902426061991" target="_blank" rel="noopener">WhatsApp&apos;tan yazın</a>
           <a class="btn btn--ghost btn--lg" href="tel:+902426061991">Hemen arayın · 0242 606 19 91</a>
-          <a class="btn btn--ghost btn--lg" href="mailto:info@mixipos.com?subject=mixipos%20demo%20talebi">Demo talep edin</a>
+          <a class="btn btn--ghost btn--lg" href="mailto:advicealcom@gmail.com?subject=mixipos%20demo%20talebi">Demo talep edin</a>
         </div>
         <p class="demo__note reveal">Restoran, kafe, bar ve otel F&amp;B için kurulum danışmanlığı dahil.</p>
       </div>
@@ -1062,7 +1096,8 @@ const jsonLd = {
                 </linearGradient>
               </defs>
               <rect x="2" y="2" width="28" height="28" rx="8" fill="url(#footmark)" opacity=".16"/>
-              <path d="M7 22.5V13l4.4 5 4.6-7 4.6 7L25 9.5" fill="none" stroke="url(#footmark)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 6.6H23V23.6l-1.75 1.6-1.75-1.6-1.75 1.6-1.75-1.6-1.75 1.6-1.75-1.6-1.75 1.6-1.75-1.6V6.6Z" fill="none" stroke="url(#footmark)" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round"/>
+              <path d="M12 11.4H20M12 14.6H20M12 17.8H16.6" fill="none" stroke="url(#footmark)" stroke-width="1.8" stroke-linecap="round"/>
             </svg>
             <span class="brand__word">mixipos</span>
           </a>
